@@ -16,3 +16,7 @@ install:
 
 test:
 	pytest tests/ -v --cov=delivery
+
+env:
+	export FLASK_ENV=development
+	export FLASK_APP=./delivery/app.py
