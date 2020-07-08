@@ -1,26 +1,154 @@
-{% extends "base.html" %}
-{% import "macros/list_item.html" as list_item %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  </head>
+  <body>
 
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          CodeFoods
+        </a>
+    
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Home
+          </a>
+    
+          <a class="navbar-item">
+            Restaurantes
+          </a>
 
-{% block top %}
-<section class="hero is-primary">
-<div class="hero-body">
-    <div class="container">
-    <h1 class="title">
-        {{ site_name }}
-    </h1>
-    <h2 class="subtitle">
-        {{ site_subtitle }}
-    </h2>
+          <a class="navbar-item" href="/sobre">
+            Sobre Nós
+          </a>
+    
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Categorias
+            </a>
+    
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                Pizzas
+              </a>
+              <a class="navbar-item">
+                Massas
+              </a>
+              <a class="navbar-item">
+                Sobremesas
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                Mais
+              </a>
+            </div>
+          </div>
+        </div>
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light">
+                Log in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+  
+  
+    <div>
+        <section class="hero is-primary">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                  {{ site_name }}
+                </h1>
+                <h2 class="subtitle">
+                  {{ site_subtitle }}
+                </h2>
+              </div>
+            </div>
+          </section>
     </div>
-</div>
-</section>
-{% endblock top %}
+    
+
+    <section class="section">
+      <div class="container">
+
+        <div class="columns">
+
+          {% for col in columns%}
+
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="https://picsum.photos/id/{{ numeros[col] }}/200/300" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img src="https://picsum.photos/id/{{ numeros[col] }}/96/96" alt="Placeholder image">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                    <p class="subtitle is-6">@johnsmith</p>
+                  </div>
+                </div>
+            
+                <div class="content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                  <a href="#">#css</a> <a href="#">#responsive</a>
+                  <br>
+                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+
+          {% endfor %}
+
+        </div>
+
+        
+      </div>
+    </section>
 
 
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
+      </div>
+    </footer>
 
-{% block main %}
-<div class="columns">
-    {{ list_item.cards([1, 2, 3, 4]) }}
-</div>
-{% endblock main %}
+  
+  </body>
+</html>
